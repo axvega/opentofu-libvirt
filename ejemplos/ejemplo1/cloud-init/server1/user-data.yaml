@@ -7,7 +7,7 @@ users:
     shell: /bin/bash
     ssh-authorized-keys:
       - AAAAC3NzaC1lZDI1NTE5AAAAIG4nEGkWJA6OjE4VGPs9AKVkwGtijtG06vgUwNazfmWy axvega420@gmail.com
-chpasswd:
+hpasswd:
   expire: False
   users:
     - name: debian
