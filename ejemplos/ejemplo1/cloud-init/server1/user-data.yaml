@@ -1,12 +1,12 @@
 #cloud-config
-hostname: server1
+hostname: server1ubuntu
 users:
-  - name: debian
+  - name: ubuntu
     sudo: ALL=(ALL) NOPASSWD:ALL
     groups: users, admin
     shell: /bin/bash
     ssh-authorized-keys:
-      - AAAAC3NzaC1lZDI1NTE5AAAAIG4nEGkWJA6OjE4VGPs9AKVkwGtijtG06vgUwNazfmWy axvega420@gmail.com
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG4nEGkWJA6OjE4VGPs9AKVkwGtijtG06vgUwNazfmWy axvega420@gmail.com
 chpasswd:
   expire: False
   users:
