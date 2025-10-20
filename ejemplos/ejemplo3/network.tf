@@ -18,6 +18,22 @@ resource "libvirt_network" "nat-dhcp" {
 }
 
 ##############################################
+# Red NAT con DHCP 2
+##############################################
+
+resource "libvirt_network" "nat2-dhcp" {
+  name      = "nat2-dhcp"
+  mode      = "nat"
+  domain    = "example.com"
+  addresses = ["192.168.200.0/24"]
+  bridge    = "virbr14"
+  dhcp { enabled = true }
+  dns { enabled = true }
+  autostart = true
+}
+
+
+##############################################
 # Red NAT sin DHCP
 ##############################################
 
