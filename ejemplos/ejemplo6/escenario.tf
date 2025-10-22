@@ -26,6 +26,17 @@ locals {
       bridge    = "virbr31"
       autostart = true
     }
+
+    nat-ubuntu = {  # MOVIDO DENTRO de networks
+      name      = "nat-ubuntu"
+      mode      = "nat"
+      domain    = "ubuntu.local"
+      addresses = ["192.168.200.0/24"]
+      bridge    = "virbr32"
+      dhcp      = true
+      dns       = true
+      autostart = true
+    }
   }
 
   ##############################################
@@ -65,6 +76,20 @@ locals {
       user_data      = "${path.module}/cloud-init/server2/user-data.yaml"
       network_config = "${path.module}/cloud-init/server2/network-config.yaml"
     }
-  }
-}
 
+    ubuntu-server = { 
+      name       = "ubuntu-server"
+      memory     = 1024
+      vcpu       = 2
+      base_image = "debian13-base.qcow2"
+
+      networks = [
+        { network_name = "nat-ubuntu", wait_for_lease = true },
+        { network_name = "muy-aislada" }
+      ]
+
+      user_data      = "${path.module}/cloud-init/ubuntu-server/user-data.yaml"
+      network_config = "${path.module}/cloud-init/ubuntu-server/network-config.yaml"
+    }
+  }
+} 
