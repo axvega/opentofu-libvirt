@@ -14,7 +14,7 @@ locals {
       mode      = "nat"
       domain    = "example.com"
       addresses = ["192.168.100.0/24"]
-      bridge    = "virbr10"
+      bridge    = "virbr34"
       dhcp      = true
       dns       = true
       autostart = true
@@ -22,8 +22,8 @@ locals {
 
     muy-aislada = {
       name      = "muy-aislada"
-      mode      = "none" # sin conectividad
-      bridge    = "virbr14"
+      mode      = "none" 
+      bridge    = "virbr35"
       autostart = true
     }
   }
