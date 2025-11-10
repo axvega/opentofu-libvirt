@@ -12,6 +12,12 @@ virtualhosts:
       documentroot: /var/www/example2
       errorlog: error_example2
       accesslog: access_example2
+  - name: vhost3
+    datos:
+      nameserver: interno.example3.org
+      documentroot: /var/www/example3
+      errorlog: error_example3
+      accesslog: access_example3
 
 mods_enabled:
   - rewrite
